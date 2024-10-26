@@ -1,0 +1,110 @@
+{% extends 'base.html' %} {% load static %} {% block body %}
+
+<!-- Title page -->
+
+<section
+  class="vh-100 bg-image m-t-84"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');
+  "
+>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100 m-t-50 m-b-50">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form
+                action="/register/"
+                method="post"
+                name="sentMessage"
+                id="contactForm"
+              >
+                {% csrf_token %}
+                <div class="control-group form-outline mb-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    id="name"
+                    placeholder="Enter Your Full Name"
+                    required="required"
+                    data-validation-required-message="Please enter your name"
+                  />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group form-outline mb-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="uname"
+                    id="name"
+                    placeholder="Enter Your UserName"
+                    required="required"
+                    data-validation-required-message="Please enter your name"
+                  />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group form-outline mb-4">
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    placeholder="Enter Your Email"
+                    required="required"
+                    data-validation-required-message="Please enter your email"
+                  />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group form-outline mb-4">
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="pass1"
+                    placeholder="Paasword"
+                    required="required"
+                    data-validation-required-message="Please enter a password"
+                  />
+                  <p class="help-block text-danger"></p>
+                </div>
+
+                <div class="control-group form-outline mb-4">
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="pass2"
+                    placeholder="Confirm Paasword"
+                    required="required"
+                    data-validation-required-message="Please enter a paasword"
+                  />
+                  <p class="help-block text-danger"></p>
+                </div>
+
+                <div class="d-flex justify-content-center p-t-10">
+                  <button
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                    type="submit"
+                    id="sendMessageButton"
+                  >
+                    Register
+                  </button>
+                </div>
+                <p class="text-center text-muted mt-5 mb-0">
+                  Have already an account?
+                  <a href="/login/" class="fw-bold text-body"
+                    ><i>Login here</i></a
+                  >
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock body %}

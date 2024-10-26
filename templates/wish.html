@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% load static %} {% block body %} {% if data %}
+<section
+  class="bg-img1 txt-center p-lr-15 p-tb-92 m-t-84"
+  style="background-image: url({% static 'images/bg-01.jpg' %})"
+>
+  <h2 class="ltext-105 cl0 txt-center">Wish List</h2>
+</section>
+<!-- Cart Start -->
+<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50 m-t-50">
+  <div class="m-l-25 m-r--38 m-lr-0-xl">
+    <div class="wrap-table-shopping-cart">
+      <table class="table-shopping-cart">
+        <tr class="table_head">
+          <th class="column-1">Product</th>
+          <th class="column-2"></th>
+          <th class="column-3">Price</th>
+          <th class="column-5">Add to cart</th>
+          <th class="column-5">Remove</th>
+        </tr>
+        {% for d in data %}
+        <tr class="table_row">
+          <td class="column-1">
+            <div class="how-itemcart1">
+              <img src="{{d.p_id.pimg.url}}" alt="IMG" />
+            </div>
+          </td>
+          <td class="column-2">{{d.p_id.pname}}</td>
+          <td class="column-3">$ {{d.p_id.pprice}}</td>
+          <td class="column-5">
+            <a
+              class="btn btn-dark m-r-5"
+              href="/add-cart-delete/{{d.p_id.pid}}/"
+            >
+              <i class="zmdi zmdi-shopping-cart"></i>
+            </a>
+          </td>
+          <td class="column-5">
+            <a href="/delete-wish/{{d.cid}}/" class="btn btn-danger"
+              ><i class="fa fa-times"></i
+            ></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+{% else %}
+<section
+  class="bg-img1 txt-center p-lr-15 p-tb-92 m-t-84"
+  style="background-image: url({% static 'images/bg-01.jpg' %})"
+>
+  <h2 class="ltext-105 cl0 txt-center m-b-20">Your Wish List is Empty</h2>
+  <a href="/shop/" class="cl0 h3">Continue Shopping</a>
+</section>
+
+{% endif %}
+<!-- Cart End -->
+
+{% endblock body %}

@@ -1,0 +1,118 @@
+{% extends "base.html" %} {% load static %} {% block body %} {% if data %}
+
+<section
+  class="bg-img1 txt-center p-lr-15 p-tb-92 m-t-84"
+  style="background-image: url({% static 'images/bg-01.jpg' %})"
+>
+  <h2 class="ltext-105 cl0 txt-center">Cart</h2>
+</section>
+<!-- Shoping Cart -->
+<form class="bg0 p-t-75 p-b-85">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+        <div class="m-l-25 m-r--38 m-lr-0-xl">
+          <div class="wrap-table-shopping-cart">
+            <table class="table-shopping-cart">
+              <tr class="table_head">
+                <th class="column-1">Product</th>
+                <th class="column-2"></th>
+                <th class="column-3">Price</th>
+                <th class="column-4">Quantity</th>
+                <th class="column-5">Total</th>
+                <th class="column-5">Remove</th>
+              </tr>
+              {% for d in data %}
+              <tr class="table_row">
+                <td class="column-1">
+                  <div class="how-itemcart1">
+                    <img src="{{d.p_id.pimg.url}}" alt="IMG" />
+                  </div>
+                </td>
+                <td class="column-2">{{d.p_id.pname}}</td>
+                <td class="column-3">$ {{d.p_id.pprice}}</td>
+                <td class="column-4">
+                  <div class="wrap-num-product flex-w m-l-auto m-r-0">
+                    <div
+                      class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m"
+                    >
+                      <a
+                        href="/minus-cart/{{d.cid}}/"
+                        class="btn btn-lg sbtn-minus"
+                      >
+                        <i class="fs-16 zmdi zmdi-minus"></i>
+                      </a>
+                    </div>
+
+                    <input
+                      class="mtext-104 cl3 txt-center num-product"
+                      type="number"
+                      name="num-product1"
+                      value="{{d.quantity}}"
+                    />
+
+                    <div
+                      class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m"
+                    >
+                      <a
+                        href="/plus-cart/{{d.cid}}/"
+                        class="btn btn-lg btn-plus"
+                      >
+                        <i class="fs-16 zmdi zmdi-plus"></i>
+                      </a>
+                    </div>
+                  </div>
+                </td>
+                <td class="column-5">$ {{d.sub_total}}</td>
+                <td class="column-5">
+                  <a href="/delete-cart/{{d.cid}}/" class="btn btn-danger"
+                    ><i class="fa fa-times"></i
+                  ></a>
+                </td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
+        <div
+          class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm"
+        >
+          <h4 class="mtext-109 cl2 p-b-30">Cart Totals</h4>
+
+          <div class="flex-w flex-t bor12 p-b-13"></div>
+          <div class="flex-w flex-t p-t-27 p-b-33">
+            <div class="size-208">
+              <span class="mtext-101 cl2"> Total : </span>
+            </div>
+
+            <div class="size-209 p-t-1">
+              <span class="mtext-110 cl2"> $ {{g_total}} </span>
+            </div>
+          </div>
+
+          
+          <button class="btn btn-block font-weight-bold">
+            <a
+              href="/checkout/"
+              class="btn btn-block bor1 btn-dark ont-weight-bold my-3 py-3"
+            >
+              Proceed To Checkout
+            </a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+{% else %}
+<section
+  class="bg-img1 txt-center p-lr-15 p-tb-92 m-t-84"
+  style="background-image: url({% static 'images/bg-01.jpg' %})"
+>
+  <h2 class="ltext-105 cl0 txt-center m-b-20">Your Cart is Empty</h2>
+  <a href="/shop/" class="cl0 h3">Continue Shopping</a>
+</section>
+{% endif %} {% endblock body %}

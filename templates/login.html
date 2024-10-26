@@ -1,0 +1,73 @@
+{% extends 'base.html' %} {% load static %} {% block body %}
+
+<!-- Title page -->
+
+<section
+  class="vh-100 bg-image m-t-84"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');
+  "
+>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100 m-t-50 m-b-50">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Login</h2>
+
+              <form
+                action="/login/"
+                method="post"
+                name="sentMessage"
+                id="contactForm" >
+                {% csrf_token %}
+                <div class="control-group form-outline mb-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="uname"
+                    id="name"
+                    placeholder="Enter Your UserName"
+                    required="required"
+                    data-validation-required-message="Please enter your UserName"
+                  />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group form-outline mb-4">
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="pass1"
+                    placeholder="Enter Your Paasword"
+                    required="required"
+                    data-validation-required-message="Please enter a password"
+                  />
+                  <p class="help-block text-danger"></p>
+                </div>
+
+                <div class="d-flex justify-content-center p-t-10">
+                  <button
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                    type="submit"
+                    id="sendMessageButton"
+                  >
+                    Login
+                  </button>
+                </div>
+                <p class="text-center text-muted mt-5 mb-0">
+                  <a href="/register/" class="fw-bold text-body"><i>Create A New Account</i></a>
+                </p>
+                <p class="text-center text-muted mt-2 mb-0">
+                  <a href="{% url 'password_reset' %}"><i>Forgot Password?</i></a>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock body %}

@@ -1,0 +1,164 @@
+{% extends 'base.html' %} {% load static %} {% block body %}
+{% if data %}
+<!-- Title page -->
+<section
+  class="bg-img1 txt-center p-lr-15 p-tb-92 m-t-84"
+  style="background-image: url({% static 'images/bg-02.jpg' %})"
+>
+  <h2 class="ltext-105 cl0 txt-center">Checkout</h2>
+</section>
+
+
+<!-- Checkout Start -->
+<div class="container-fluid m-t-50 m-b-50">
+  <form action="/checkout/" method="post">
+    {% csrf_token %}
+    <div class="row px-xl-5">
+      <div class="col-lg-8">
+        <div class="p-30 mb-5 pt-4">
+          <h2 class="text-center mb-1">Billing Address</h2>
+          <div class="row">
+            <div class="col-md-12 form-group text-dark h5 my-4">
+              <label>Full Name</label>
+              <input
+                class="form-control"
+                name="name"
+                value="{{data1.name}}"
+                type="text"
+                placeholder="Doe"
+                data-validation-required-message="Please enter your name"
+                required
+              />
+            </div>
+            <div class="col-md-6 form-group text-dark h5 mb-4">
+              <label>E-mail</label>
+              <input
+                class="form-control"
+                value="{{data1.email}}"
+                name="email"
+                type="text"
+                placeholder="example@email.com"
+                required
+              />
+            </div>
+            <div class="col-md-6 form-group text-dark h5 mb-4">
+              <label>Mobile No</label>
+              <input
+                class="form-control"
+                value="{{data1.phone}}"
+                name="phone"
+                type="text"
+                placeholder="+123 456 789"
+                required
+              />
+            </div>
+            <div class="col-md-6 form-group text-dark h5 mb-4">
+              <label>Address </label>
+              <input
+                class="form-control"
+                value="{{data1.address}}"
+                name="address"
+                type="text"
+                placeholder="123 Street"
+                required
+              />
+            </div>
+
+            <div class="col-md-6 form-group text-dark h5 mb-4">
+              <label>City</label>
+              <input
+                class="form-control"
+                value="{{data1.city}}"
+                name="city"
+                type="text"
+                placeholder="New York"
+                required
+              />
+            </div>
+            <div class="col-md-6 form-group text-dark h5 mb-5">
+              <label>State</label>
+              <input
+                class="form-control"
+                value="{{data1.state}}"
+                name="state"
+                type="text"
+                placeholder="New York"
+                required
+              />
+            </div>
+            <div class="col-md-6 form-group text-dark h5 mb-5">
+              <label>ZIP Code</label>
+              <input
+                class="form-control"
+                value="{{data1.zip}}"
+                name="zip"
+                type="text"
+                placeholder="123"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="bor10 p-lr-40 p-t-10 p-b-10 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+          <h2 class="text-center mb-2">Order Total</h2>
+          <div class="flex-w flex-t bor12 p-b-13">
+            <span class="mtext-101 cl2"> Products : </span>
+          </div>
+          <div class="border-bottom m-t-10">
+            {% for d in data %}
+            <div class="d-flex justify-content-between">
+              <p class="m-b-8">{{d.p_id.pname}}</p>
+              <p>${{d.sub_total}}</p>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="flex-w flex-t bor12 p-b-13"></div>
+          <div class="border-bottom pt-3 pb-2">
+            <div class="d-flex justify-content-between mb-3">
+              <h5>Subtotal :</h5>
+              <h5>${{g_total}}</h5>
+            </div>
+            <div class="d-flex justify-content-between">
+              <h5>Shipping :</h5>
+              <h5>$10</h5>
+            </div>
+          </div>
+          <div class="pt-4 pb-3">
+            <div class="d-flex justify-content-between mt-2">
+              <h4> Total : </h4>
+              <h4>${{total}}</h5>
+            </div>
+          </div>
+        </div>
+        <div class="bor10 p-lr-40 p-t-10 p-b-10 m-t-10 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+          <h3 class="text-center mb-5">Payment</h3>
+          <div class="p-30">
+              <div class="form-check p-l-20 pb-3">
+                  <input type="radio" class="form-check-input" name="payment" value="1" id="paypal">
+                  <label class="custom-control-label h5" for="paypal">Cash on Delivery</label>
+              </div>
+              <div class="form-check p-l-20 pb-3">
+                <input type="radio" class="form-check-input" name="payment" value="2" id="strip">
+                <label class="custom-control-label h5" for="strip">Stripe</label>
+            </div>
+            <button class="btn btn-block btn-primary font-weight-bold py-3">Place Order</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- Checkout End -->
+{% else %}
+<section
+  class="bg-img1 txt-center p-lr-15 p-tb-92 m-t-84"
+  style="background-image: url({% static 'images/bg-02.jpg' %})"
+>
+  <h2 class="cl0 txt-center m-b-20">You have not added anything in your cart, please click here to add product.</h2>
+  <a href="/shop/" class="cl1 h3">Continue Shopping</a>
+</section>
+{% endif %}
+{% endblock body %}
+<!-- Breadcrumb Start -->
