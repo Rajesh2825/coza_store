@@ -10,17 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+
 import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-
+# Set BASE_DIR at the beginning
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-from pathlib import Path
+# Load environment variables from .env file
+load_dotenv(dotenv_path=BASE_DIR / 'project.env')
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
