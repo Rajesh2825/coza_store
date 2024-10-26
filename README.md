@@ -123,7 +123,7 @@ The Coza Store project is a clothing website built with Python and Django for th
 ![Admin Panel](website_img/confirm_order.png)
 
 ### Orders Page
-![Admin Panel](website_img/myorders.png)
+![Admin Panel](website_img/order.png)
 
 
 
