@@ -95,6 +95,38 @@ The Coza Store project is a clothing website built with Python and Django for th
 - **Payment:** Payment is processed through Stripe, ensuring secure transactions.
 
 
+
+## Screenshots
+
+### Home Page
+![Home Page](website_img/homepage.png)
+
+### Product Page
+![Product Page](website_img/product.png)
+
+### Shoping Page
+![Product Page](website_img/shop.png)
+
+### Wish list Page
+![Shopping Cart](website_img/wishlist.png)
+
+### Shoping Cart Page
+![Admin Panel](website_img/cart.png)
+
+### Checkout Page
+![Admin Panel](website_img/checkout.png)
+
+### Payment Page
+![Admin Panel](website_img/payment.png)
+
+### Confirm Order Page
+![Admin Panel](website_img/confirm_order.png)
+
+### Orders Page
+![Admin Panel](website_img/myorders.png)
+
+
+
 ## Contributing
 Contributions are welcome! Please fork the repository and create a pull request for any changes or improvements.
 
