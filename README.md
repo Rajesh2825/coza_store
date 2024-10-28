@@ -46,7 +46,7 @@ The Coza Store project is a clothing website built with Python and Django for th
     ```
 
 4. Set up your MySQL database:
-   - Open MySQL and create a database named `oneforall`:
+   - Open MySQL and create a database named `coza`:
      ```sql
      CREATE DATABASE coza;
      ```
@@ -73,7 +73,9 @@ The Coza Store project is a clothing website built with Python and Django for th
 6. Apply migrations:
     ```bash
     python manage.py makemigrations
-    python manage.py migrate
+    ```
+    ```bash
+     python manage.py migrate
     ```
 
 7. Create a superuser (admin account):(optional)
