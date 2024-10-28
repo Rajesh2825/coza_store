@@ -30,7 +30,7 @@ The Coza Store project is a clothing website built with Python and Django for th
 ### Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/Rajesh2825/coza_store.git
+    git clone https://github.com/radadiya-rajesh/coza_store.git
     cd oneforall
     ```
 
