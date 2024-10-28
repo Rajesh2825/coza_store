@@ -55,7 +55,6 @@ The Coza Store project is a clothing website built with Python and Django for th
      SOURCE path/to/your/coza.sql;
      ```
 
-
 5. Set up environment variables: Create a `.env` file in the project root with the following structure:
     ```plaintext
     SECRET_KEY=your_django_secret_key
